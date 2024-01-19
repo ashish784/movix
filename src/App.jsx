@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import Footer from './components/Footer/footer';
+import Footer from "./components/footer/Footer";
 import Header from './components/header/Header';
 import PageNotFound from './pages/404/PageNotFound';
 import Details from './pages/details/Details';
