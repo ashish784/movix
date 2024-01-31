@@ -19,23 +19,25 @@ const HeroBanner = () => {
          setBackground(bg);
     }, [data]);
 
-useEffect(() => {
-    setRandomBackground();
-    const intervalId = setInterval(() => {
-      setRandomBackground();
-    }, 5000);
-
-    return () => clearInterval(intervalId);
-  }, [data]);
-
-  const setRandomBackground = () => {
-    const bgIndex = Math.floor(Math.random() * 20);
-    const bg = url.backdrop + data?.results?.[bgIndex]?.backdrop_path;
-    setBackground(bg);
-
-    const shiftAmount = -bgIndex * (100 / 3);
-    document.querySelector('.backdrop-img').style.transform = `translateX(${shiftAmount}%)`;
-  };
+    useEffect(() => {
+        setRandomBackground();
+    
+        const intervalId = setInterval(() => {
+          setRandomBackground();
+        }, 5000);
+    
+        return () => clearInterval(intervalId);
+      }, [data]);
+    
+      const setRandomBackground = () => {
+        const bgIndex = Math.floor(Math.random() * 20);
+        const bg =
+          url.backdrop + data?.results?.[bgIndex]?.backdrop_path;
+        setBackground(bg);
+    
+        const shiftAmount = -bgIndex * (100 / 3);
+        document.querySelector('.backdrop-img').style.transform = `translateX(${shiftAmount}%)`;
+      };
 
     const handleSearch = () => {
     if (query.length > 0) {
@@ -53,7 +55,8 @@ useEffect(() => {
     <div className="heroBanner">
         {!loading && <div className="backdrop-img">
             <Img src={url.backdrop + data?.results?.[index]?.backdrop_path} />
-        </div>}
+            </div>
+        }
         <div className="opacity-layer"></div>
         <ContentWrapper>
             <div className="heroBannerContent">
