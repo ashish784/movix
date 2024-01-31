@@ -52,7 +52,7 @@ useEffect(() => {
   return (
     <div className="heroBanner">
         {!loading && <div className="backdrop-img">
-            <Img src={background} />
+            <Img src={url.backdrop + data?.results?.[index]?.backdrop_path} />
         </div>}
         <div className="opacity-layer"></div>
         <ContentWrapper>
