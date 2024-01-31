@@ -55,7 +55,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import "./style.scss";
+import './style.scss';
 import useFetch from '../../../hooks/useFetch';
 import Img from '../../../components/lazyLoadImage/Img';
 import ContentWrapper from '../../../components/contentWrapper/ContentWrapper';
@@ -79,17 +79,22 @@ const HeroBanner = () => {
 
   const setRandomBackground = () => {
     const bgIndex = Math.floor(Math.random() * 20);
-    const bg =
-      url.backdrop + data?.results?.[bgIndex]?.backdrop_path;
+    const bg = url.backdrop + data?.results?.[bgIndex]?.backdrop_path;
     setBackground(bg);
 
     const shiftAmount = -bgIndex * (100 / 3);
     document.querySelector('.backdrop-img').style.transform = `translateX(${shiftAmount}%)`;
   };
 
-  const searchQueryHandler = (event) => {
-    if (event.key === 'Enter' && query.length > 0) {
+  const handleSearch = () => {
+    if (query.length > 0) {
       navigate(`/search/${query}`);
+    }
+  };
+
+  const searchQueryHandler = (event) => {
+    if (event.key === 'Enter') {
+      handleSearch();
     }
   };
 
@@ -109,7 +114,7 @@ const HeroBanner = () => {
         <div className="heroBannerContent">
           <span className="title">Welcome to the Movie Universe</span>
           <span className="subTitle">
-            Millions of movies, TV Shows and people to discover. Explore now.
+            Millions of movies, TV Shows, and people to discover. Explore now.
           </span>
           <div className="searchInput">
             <input
@@ -118,7 +123,7 @@ const HeroBanner = () => {
               onChange={(e) => setQuery(e.target.value)}
               onKeyUp={searchQueryHandler}
             />
-            <button>Search</button>
+            <button onClick={handleSearch}>Search</button>
           </div>
         </div>
       </ContentWrapper>
