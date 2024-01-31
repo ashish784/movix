@@ -51,10 +51,11 @@
 // };
 
 // export default HeroBanner;
+// HeroBanner.jsx
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import './style.scss';
+import './HeroBanner.scss'; // Make sure to import the correct SCSS file
 import useFetch from '../../../hooks/useFetch';
 import Img from '../../../components/lazyLoadImage/Img';
 import ContentWrapper from '../../../components/contentWrapper/ContentWrapper';
@@ -67,23 +68,23 @@ const HeroBanner = () => {
   const { data, loading } = useFetch('/movie/upcoming');
 
   useEffect(() => {
-    // Set initial background
     setRandomBackground();
 
-    // Schedule automatic background change every 5 seconds
     const intervalId = setInterval(() => {
       setRandomBackground();
     }, 5000);
 
-    // Clear interval on component unmount
     return () => clearInterval(intervalId);
   }, [data]);
 
   const setRandomBackground = () => {
+    const bgIndex = Math.floor(Math.random() * 20);
     const bg =
-      url.backdrop +
-      data?.results?.[Math.floor(Math.random() * 20)]?.backdrop_path;
+      url.backdrop + data?.results?.[bgIndex]?.backdrop_path;
     setBackground(bg);
+
+    const shiftAmount = -bgIndex * (100 / 3);
+    document.querySelector('.backdrop-img').style.transform = `translateX(${shiftAmount}%)`;
   };
 
   const searchQueryHandler = (event) => {
@@ -96,7 +97,11 @@ const HeroBanner = () => {
     <div className="heroBanner">
       {!loading && (
         <div className="backdrop-img">
-          <Img src={background} />
+          {[0, 1, 2].map((index) => (
+            <div key={index} className="lazy-load-image-background">
+              <Img src={url.backdrop + data?.results?.[index]?.backdrop_path} />
+            </div>
+          ))}
         </div>
       )}
       <div className="opacity-layer"></div>
@@ -122,3 +127,4 @@ const HeroBanner = () => {
 };
 
 export default HeroBanner;
+
