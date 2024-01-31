@@ -72,7 +72,7 @@ const HeroBanner = () => {
 
     const intervalId = setInterval(() => {
       setRandomBackground();
-    }, 5000);
+    }, 2000);
 
     return () => clearInterval(intervalId);
   }, [data]);
