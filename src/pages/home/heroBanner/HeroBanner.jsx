@@ -72,7 +72,7 @@ const HeroBanner = () => {
 
     const intervalId = setInterval(() => {
       setRandomBackground();
-    }, 2000);
+    }, 5000);
 
     return () => clearInterval(intervalId);
   }, [data]);
@@ -107,7 +107,7 @@ const HeroBanner = () => {
       <div className="opacity-layer"></div>
       <ContentWrapper>
         <div className="heroBannerContent">
-          <span className="title">Welcome.</span>
+          <span className="title">Welcome to the Movie Universe</span>
           <span className="subTitle">
             Millions of movies, TV Shows and people to discover. Explore now.
           </span>
