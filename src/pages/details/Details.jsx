@@ -13,12 +13,6 @@ const Details = () => {
   const { mediaType, id } = useParams();
   const { data, loading } = useFetch(`/${mediaType}/${id}/videos`);
   const { data: credits, loading:creditsLoading } = useFetch(`/${mediaType}/${id}/credits`);
-  const history = useHistory();
-
-  useEffect(() => {
-    const lastWatchedVideo = { mediaType, id };
-    localStorage.setItem('lastWatchedVideo', JSON.stringify(lastWatchedVideo));
-  }, [mediaType, id]);
 
   return (
     <div>
