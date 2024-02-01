@@ -17,7 +17,7 @@ const NowPlaying = () => {
     <div className="carouselSection">
       <ContentWrapper>
         <span className="carouselTitle">Now Playing</span>
-        <SwitchTabs data={["Movies", "TV Shows"]} onTabChange={onTabChange} />
+        <SwitchTabs data={["Movies"]} onTabChange={onTabChange} />
       </ContentWrapper>
       <Carousel data={data?.results} loading={loading} endpoint={mediaType} />
     </div>
