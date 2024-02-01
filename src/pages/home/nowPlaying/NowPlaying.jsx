@@ -34,11 +34,10 @@ import './style.scss';
 
 const NowPlaying = () => {
   const [lastWatchedVideo, setLastWatchedVideo] = useState(null);
-  const [endpoint, setEndpoint] = useState("movie"); // Set the default endpoint to "movie"
-  const { data, loading } = useFetch(`/${endpoint}/now_playing`); // Use the endpoint variable
+  const [endpoint, setEndpoint] = useState("movie");
+  const { data, loading } = useFetch(`/${endpoint}/now_playing`);
 
   useEffect(() => {
-    // Retrieve last watched video from local storage
     const storedLastWatchedVideo = localStorage.getItem('lastWatchedVideo');
     setLastWatchedVideo(storedLastWatchedVideo ? JSON.parse(storedLastWatchedVideo) : null);
   }, []);
