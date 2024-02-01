@@ -5,6 +5,7 @@ import Popular from './popular/Popular';
 import "./style.scss";
 import TopRated from './topRated/TopRated';
 import Trending from './trending/Trending';
+import Upcoming from './upcoming/Upcoming';
 
 
 
@@ -17,6 +18,7 @@ const Home = () => {
         <Trending />
         <Popular />
         <TopRated />
+        <Upcoming />
     </div>
   );
 };
