@@ -12,7 +12,8 @@ import Recommendation from './carousels/Recommendation';
 const Details = () => {
   const { mediaType, id } = useParams();
   const { data, loading } = useFetch(`/${mediaType}/${id}/videos`);
-  const { data: credits, loading:creditsLoading } = useFetch(`/${mediaType}/${id}/credits`);
+  const { data: credits, loading: creditsLoading } = useFetch(`/${mediaType}/${id}/credits`);
+
 
   return (
     <div>
@@ -23,7 +24,7 @@ const Details = () => {
       <Similar mediaType={mediaType} id={id} />
       <Recommendation mediaType={mediaType} id={id} />
     </div>
-  );
-};
+  )
+}
 
 export default Details;
