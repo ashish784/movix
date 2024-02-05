@@ -7,13 +7,10 @@ import TopRated from './topRated/TopRated';
 import Trending from './trending/Trending';
 
 
-
-
 const Home = () => {
   return (
     <div className="homePage">
         <HeroBanner />
-        <NowPlaying />
         <Trending />
         <Popular />
         <TopRated />
