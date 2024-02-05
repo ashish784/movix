@@ -14,8 +14,6 @@ import { fetchDataFromApi } from './utils/api';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 
-
-
 function App() {
   const dispatch = useDispatch();
   const {url} = useSelector((state) => state.home);

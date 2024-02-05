@@ -23,7 +23,7 @@ const Details = () => {
       <Similar mediaType={mediaType} id={id} />
       <Recommendation mediaType={mediaType} id={id} />
     </div>
-  )
-}
+  );
+};
 
 export default Details;
