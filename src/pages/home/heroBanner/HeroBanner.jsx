@@ -18,8 +18,6 @@ const HeroBanner = () => {
         const intervalId = setInterval(() => {
           setRandomBackground();
         }, 2000);
-        
-        return () => clearInterval(intervalId);
         }, [data]);
     
       // const setRandomBackground = () => {
