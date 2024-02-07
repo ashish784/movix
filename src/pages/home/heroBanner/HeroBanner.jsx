@@ -11,17 +11,16 @@ const HeroBanner = () => {
     const [query, setQuery] = useState("");
     const navigate = useNavigate();
     const { url } = useSelector((state) => state.home);
-    const {data, loading, error} = useFetch("/movie/upcoming");
+    const {data, loading, error} = useFetch("/movie/popular");
 
     useEffect(() => {       
       if (error) {
-        console.error("Error fetching upcoming movies:", error);
-        // Handle error state (e.g., show an error message)
+        console.error("Error fetching popular movies:", error);
       } else {
         setRandomBackground();
         const intervalId = setInterval(() => {
             setRandomBackground();
-        }, 3000);
+        }, 2000);
 
         return () => clearInterval(intervalId);
       }
