@@ -14,13 +14,18 @@ const HeroBanner = () => {
     const {data, loading} = useFetch("/movie/upcoming");
 
     useEffect(() => {       
+      if (error) {
+        console.error("Error fetching upcoming movies:", error);
+        // Handle error state (e.g., show an error message)
+      } else {
         setRandomBackground();
         const intervalId = setInterval(() => {
-          setRandomBackground();
+            setRandomBackground();
         }, 2000);
-        
+
         return () => clearInterval(intervalId);
-      }, [data]);
+      }
+    }, [data, error]);
     
       const setRandomBackground = () => {
         const bg =
