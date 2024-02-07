@@ -43,6 +43,7 @@ const HeroBanner = () => {
 
   return (
     <div className="heroBanner">
+        {loading && <p>Loading...</p>}
         {!loading && <div className="backdrop-img">
             <Img src={background} />
         </div>}
