@@ -11,7 +11,7 @@ const HeroBanner = () => {
     const [query, setQuery] = useState("");
     const navigate = useNavigate();
     const { url } = useSelector((state) => state.home);
-    const {data, loading} = useFetch("/movie/upcoming");
+    const {data, loading, error} = useFetch("/movie/upcoming");
 
     useEffect(() => {       
       if (error) {
@@ -21,7 +21,7 @@ const HeroBanner = () => {
         setRandomBackground();
         const intervalId = setInterval(() => {
             setRandomBackground();
-        }, 2000);
+        }, 3000);
 
         return () => clearInterval(intervalId);
       }
